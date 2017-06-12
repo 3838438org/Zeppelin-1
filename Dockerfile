@@ -8,7 +8,7 @@ ENV ZEPPELIN_HOME=/opt/zeppelin \
 	PATH=$PATH:/usr/lib/jvm/java-1.7-openjdk/jre/bin:/usr/lib/jvm/java-1.7-openjdk/bin
 
 # Base Zeppelin 
-RUN apk update && apk add --upgrade bash curl ca-certificates jq openjdk7 && \
+RUN apk update && apk add --upgrade bash curl ca-certificates jq openjdk7 git && \
 	mkdir -p ${ZEPPELIN_HOME} && \
 	curl ${DIST_MIRROR}/zeppelin-${VERSION}/zeppelin-${VERSION}-bin-all.tgz | tar xz -C ${ZEPPELIN_HOME} && \
 	mv ${ZEPPELIN_HOME}/zeppelin-${VERSION}-bin-all/* ${ZEPPELIN_HOME} && \
